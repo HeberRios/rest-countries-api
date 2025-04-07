@@ -1,0 +1,117 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/fonts/nunito-sans-v15-latin-300.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../assets/fonts/nunito-sans-v15-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../assets/fonts/nunito-sans-v15-latin-800.woff2') format('woff2');
+}
+
+:root {
+  /* # Colors */
+  --dark-mode-background: hsl(207, 26%, 17%);
+  --dark-mode-element: hsl(209, 23%, 22%);
+  --dark-mode-text: hsl(0, 0%, 100%);
+
+  --light-mode-background: hsl(0, 0%, 98%);
+  --light-mode-elements: hsl(0, 0%, 100%);
+  --light-mode-text: hsl(200, 15%, 8%);
+
+  /* # Typography */
+
+  /* ## Body Copy */
+
+  --home-page-fs: 0.875rem;
+  --details-page-fs: 1rem;
+
+  /* ## Fonts */
+
+  --main-font: 'Nunito Sans', sans-serif;
+  --fw-light: 300;
+  --fw-semibold: 600;
+  --fw-extra-bold: 800;
+}
+
+/* CSS RESET */
+/*
+	1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+	2. Remove default margin
+  */
+* {
+  margin: 0;
+  padding: 0;
+}
+/*
+	Typographic tweaks!
+	3. Add accessible line-height
+	4. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+	5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+	6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+	7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+	8. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+body {
+	font-family: var(--main-font);
+}
