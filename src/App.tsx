@@ -1,13 +1,11 @@
 import { Header } from './components/Header';
-import { SearchAndFilter } from './components/SearchAndFilter';
+import { MainContent } from './components/MainContent';
 
 function App() {
   return (
     <>
       <Header />
-      <main>
-        <SearchAndFilter />
-      </main>
+      <MainContent />
     </>
   );
 }
