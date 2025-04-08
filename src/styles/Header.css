@@ -1,0 +1,24 @@
+.page-header {
+  padding: 2.25rem 1rem;
+  background-color: var(--element-color);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-heading {
+  font-size: var(--home-page-fs);
+}
+
+.theme-switch-btn {
+  color: inherit;
+  border: none;
+  background-color: unset;
+}
+
+.theme-switch-btn:hover {
+  cursor: pointer;
+}
