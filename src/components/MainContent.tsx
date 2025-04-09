@@ -3,15 +3,23 @@ import { SearchAndFilter } from './SearchAndFilter';
 import allCountriesData from '../data-mockups/data-v3_1.json';
 import { CountryCard } from './CountryCard';
 
-function formatCountryData(countriesData) {
+type rawCountryData = {
+  name: { official: string };
+  capital?: string[];
+  region: string;
+  population: number;
+  flags: { png: string; alt?: string };
+};
+
+function formatCountryData(countriesData: rawCountryData[]) {
   return countriesData.map((country) => {
     return {
       name: country.name.official,
-      capital: country.capital,
+      capital: country.capital?.[0] || 'N/A',
       region: country.region,
       population: country.population,
-      flagImg: country.flags.svg,
-      flagAlt: country.flags.alt,
+      flagImg: country.flags.png,
+      flagAlt: country.flags.alt || `${country.name.official} flag`,
     };
   });
 }

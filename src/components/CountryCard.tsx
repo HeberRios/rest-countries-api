@@ -2,7 +2,7 @@ import '../styles/CountryCard.css';
 
 export type CountryCardProps = {
   name: string;
-  capital: string[] | undefined;
+  capital: string;
   region: string;
   population: number;
   flagImg: string;
