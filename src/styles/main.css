@@ -28,7 +28,8 @@
   --background-dark: hsl(207, 26%, 17%);
   --element-dark: hsl(209, 23%, 22%);
   --text-dark: hsl(0, 0%, 100%);
-
+  --box-shadow-dark: hsla(208, 25%, 13%, 0.545);
+  
   /* light theme */
   --background-light: hsl(0, 0%, 95%);
   --element-light: hsl(0, 0%, 100%);
