@@ -1,8 +1,9 @@
-import { rawCountryData } from '../types/types';
+import { RawCountryCardData } from '../types/types';
 
-export function formatCountryData(countriesData: rawCountryData[]) {
+export function formatCountryData(countriesData: RawCountryCardData[]) {
   return countriesData.map((country) => {
     return {
+      cca3: country.cca3,
       name: country.name.official,
       capital: country.capital?.[0] || 'N/A',
       region: country.region,

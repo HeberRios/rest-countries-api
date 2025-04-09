@@ -2,6 +2,7 @@ import '../styles/CountryCard.css';
 import { CountryCardProps } from '../types/types';
 
 export function CountryCard({
+  cca3,
   name,
   capital,
   region,

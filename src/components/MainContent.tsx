@@ -4,6 +4,9 @@ import allCountriesData from '../data-mockups/data-v3_1.json';
 import { CountryCard } from './CountryCard';
 import { formatCountryData } from '../utils/utils';
 
+// endpoint for the countries data :
+// https://restcountries.com/v3.1/all?fields=,cca3,name,capital,region,subregion,population,flags,tld,currencies,languages,borders
+
 const formattedCountryData = formatCountryData(allCountriesData);
 
 export function MainContent() {
@@ -14,7 +17,8 @@ export function MainContent() {
         {formattedCountryData.map((country) => {
           return (
             <CountryCard
-              key={country.name}
+              key={country.cca3}
+              cca3={country.cca3}
               name={country.name}
               capital={country.capital}
               region={country.region}

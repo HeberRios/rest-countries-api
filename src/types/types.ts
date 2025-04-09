@@ -1,4 +1,5 @@
-export type rawCountryData = {
+export type RawCountryCardData = {
+  cca3: string,
   name: { official: string };
   capital?: string[];
   region: string;
@@ -7,6 +8,7 @@ export type rawCountryData = {
 };
 
 export type CountryCardProps = {
+  cca3: string
   name: string;
   capital: string;
   region: string;
