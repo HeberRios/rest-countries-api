@@ -1,13 +1,5 @@
 import '../styles/CountryCard.css';
-
-export type CountryCardProps = {
-  name: string;
-  capital: string;
-  region: string;
-  population: number;
-  flagImg: string;
-  flagAlt: string;
-};
+import { CountryCardProps } from '../types/types';
 
 export function CountryCard({
   name,
