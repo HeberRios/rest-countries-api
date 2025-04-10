@@ -11,7 +11,7 @@ const formattedCountryData = formatCountryData(allCountriesData);
 
 export function MainContent() {
   return (
-    <main className='page-content'>
+    <main className='container page-content'>
       <SearchAndFilter />
       <div className='countries-cards-container'>
         {formattedCountryData.map((country) => {
