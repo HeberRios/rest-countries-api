@@ -13,6 +13,8 @@
 
 .country-search-form {
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
   column-gap: 2rem;
 }
 
