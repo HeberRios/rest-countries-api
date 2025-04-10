@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <div className='page-view'>
       <Header />
-      <MainContent contentVariant='home-page' />
+      <MainContent />
     </div>
   );
 }
