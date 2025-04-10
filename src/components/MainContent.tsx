@@ -9,26 +9,39 @@ import { formatCountryData } from '../utils/utils';
 
 const formattedCountryData = formatCountryData(allCountriesData);
 
-export function MainContent() {
-  return (
-    <main className='container page-content'>
-      <SearchAndFilter />
-      <div className='countries-cards-container'>
-        {formattedCountryData.map((country) => {
-          return (
-            <CountryCard
-              key={country.cca3}
-              cca3={country.cca3}
-              name={country.name}
-              capital={country.capital}
-              region={country.region}
-              population={country.population}
-              flagImg={country.flagImg}
-              flagAlt={country.flagAlt}
-            />
-          );
-        })}
-      </div>
-    </main>
-  );
+export type MainContentProps = {
+  contentVariant: string;
+};
+
+export function MainContent({ contentVariant }: MainContentProps) {
+  if (contentVariant === 'home-page') {
+    return (
+      <main className='container page-content'>
+        <SearchAndFilter />
+        <div className='countries-cards-container'>
+          {formattedCountryData.map((country) => {
+            return (
+              <CountryCard
+                key={country.cca3}
+                cca3={country.cca3}
+                name={country.name}
+                capital={country.capital}
+                region={country.region}
+                population={country.population}
+                flagImg={country.flagImg}
+                flagAlt={country.flagAlt}
+              />
+            );
+          })}
+        </div>
+      </main>
+    );
+  } else if (contentVariant === 'country-details') {
+    return (
+      <main className='container page-content'>
+        <button>back to home</button>
+        <h2>country details page</h2>
+      </main>
+    );
+  }
 }
