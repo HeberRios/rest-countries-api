@@ -12,7 +12,7 @@ export function CountryCard({
   flagAlt,
 }: CountryCardProps) {
   return (
-    <Link to={cca3} className='country-card-link'>
+    <Link to={`/${cca3}`} className='country-card-link'>
       <article className='country-card'>
         <header>
           <img src={flagImg} alt={flagAlt} />

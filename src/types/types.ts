@@ -16,3 +16,41 @@ export type CountryCardProps = {
   flagImg: string;
   flagAlt: string;
 };
+
+export type Country = {
+  flags:      Flags;
+  name:       Name;
+  tld:        string[];
+  cca3:       string;
+  currencies: { [key: string]: Currency };
+  capital:    string[];
+  region:     Region;
+  subregion:  string;
+  languages:  { [key: string]: string };
+  borders:    string[];
+  population: number;
+}
+
+export type Currency = {
+  name:   string;
+  symbol: string;
+}
+
+export type Flags = {
+  png: string;
+  svg: string;
+  alt: string;
+}
+
+export type Name = {
+  common:     string;
+  official:   string;
+  nativeName: { [key: string]: NativeName };
+}
+
+export type NativeName = {
+  official: string;
+  common:   string;
+}
+
+export type Region = "Antarctic" | "Americas" | "Europe" | "Africa" | "Asia" | "Oceania";

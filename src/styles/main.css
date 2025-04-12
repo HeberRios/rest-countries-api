@@ -29,7 +29,7 @@
   --element-dark: hsl(209, 23%, 22%);
   --text-dark: hsl(0, 0%, 100%);
   --box-shadow-dark: hsla(208, 25%, 13%, 0.545);
-  
+
   /* light theme */
   --background-light: hsl(0, 0%, 95%);
   --element-light: hsl(0, 0%, 100%);
@@ -125,6 +125,11 @@ body {
   font-family: var(--main-font);
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .container {

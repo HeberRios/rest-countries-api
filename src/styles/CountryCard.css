@@ -1,7 +1,5 @@
 .country-card-link {
   display: grid;
-  text-decoration: none;
-  color: inherit;
 }
 
 .country-card {
