@@ -4,6 +4,7 @@ import allCountriesData from '../data-mockups/data-v3_1.json';
 import { ArrowLeftIcon } from '../components/icons/ArrowLeftIcon';
 import { Country } from '../types/types';
 import codeAndCountryNameList from '../data-mockups/cca3-name-list.json';
+import '../styles/CountryDetails.css';
 
 function formatCountryDetailsData(country: Country) {
   const nativeNameLanguage = Object.keys(country.name.nativeName).slice(
@@ -41,8 +42,7 @@ export default function CountryDetails() {
   return (
     <div className='page-view'>
       <Header />
-      <main className='container page-content'>
-        <h3>{params.countryCode} details page</h3>
+      <main className='container details-page-content'>
         <Link to='/' className='country-details-home-page-link'>
           <ArrowLeftIcon />
           <span>back</span>
@@ -51,75 +51,87 @@ export default function CountryDetails() {
         <article className='country-details-container'>
           <header className='country-flag-image-container'>
             <img
+              className='country-details-img'
               src={formattedCountryData.flags.svg}
               alt={formattedCountryData.flags.alt}
             />
           </header>
-          <h2>{formattedCountryData.name}</h2>
-          <div className='main-country-details-wrapper'>
-            <p>
-              <strong>native name:</strong>
-              {formattedCountryData.nativeName}
-            </p>
-            <p>
-              <strong>population:</strong>
-              {formattedCountryData.population}
-            </p>
-            <p>
-              <strong>region:</strong>
-              {formattedCountryData.region}
-            </p>
-            <p>
-              <strong>sub region:</strong>
-              {formattedCountryData.subRegion !== ''
-                ? formattedCountryData.subRegion
-                : 'N/A'}
-            </p>
-            <p>
-              <strong>capital:</strong>
-              {formattedCountryData.capital.length > 0
-                ? formattedCountryData.capital[0]
-                : 'N/A'}
-            </p>
-          </div>
 
-          <div className='secondary-country-details-wrapper'>
-            <p>
-              <strong>top level domain:</strong>
-              {formattedCountryData.tld}
-            </p>
-            <p>
-              <strong>currencies:</strong>
-              {formattedCountryData.currencies}
-            </p>
-            <p>
-              <strong>languages:</strong>
-              {formattedCountryData.languages.length > 0
-                ? formattedCountryData.languages.map((lang) => {
-                    return <span key={lang}>{lang}</span>;
-                  })
-                : 'N/A'}
-            </p>
-          </div>
-
-          <div className='borders-wrapper'>
-            <strong>Border Countries:</strong>
-            <div className='borders-names-wrapper'>
-              {formattedCountryData.borders.length > 0
-                ? formattedCountryData.borders.map((border) => {
-                    return (
-                      <Link key={border} to={`/${border}`}>
-                        {
-                          codeAndCountryNameList[
-                            border as keyof typeof codeAndCountryNameList
-                          ]
-                        }
-                      </Link>
-                    );
-                  })
-                : 'N/A'}
+          <section className='country-details-text-container'>
+            <div className='main-country-details-wrapper'>
+              <h2>{formattedCountryData.name}</h2>
+              <p>
+                <strong>native name:</strong>
+                {formattedCountryData.nativeName}
+              </p>
+              <p>
+                <strong>population:</strong>
+                {formattedCountryData.population.toLocaleString()}
+              </p>
+              <p>
+                <strong>region:</strong>
+                {formattedCountryData.region}
+              </p>
+              <p>
+                <strong>sub region:</strong>
+                {formattedCountryData.subRegion !== ''
+                  ? formattedCountryData.subRegion
+                  : 'N/A'}
+              </p>
+              <p>
+                <strong>capital:</strong>
+                {formattedCountryData.capital.length > 0
+                  ? formattedCountryData.capital[0]
+                  : 'N/A'}
+              </p>
             </div>
-          </div>
+
+            <div className='secondary-country-details-wrapper'>
+              <p>
+                <strong>top level domain:</strong>
+                {formattedCountryData.tld}
+              </p>
+              <p>
+                <strong>currencies:</strong>
+                {formattedCountryData.currencies}
+              </p>
+              <p>
+                <strong>languages:</strong>
+                {formattedCountryData.languages.length > 0
+                  ? formattedCountryData.languages.map((lang) => {
+                      return (
+                        <span key={lang} className='language-item'>
+                          {lang}
+                        </span>
+                      );
+                    })
+                  : 'N/A'}
+              </p>
+            </div>
+
+            <div className='borders-wrapper'>
+              <strong>border countries:</strong>
+              <div className='borders-names-wrapper'>
+                {formattedCountryData.borders.length > 0
+                  ? formattedCountryData.borders.map((border) => {
+                      return (
+                        <Link
+                          key={border}
+                          to={`/${border}`}
+                          className='border-country-link'
+                        >
+                          {
+                            codeAndCountryNameList[
+                              border as keyof typeof codeAndCountryNameList
+                            ]
+                          }
+                        </Link>
+                      );
+                    })
+                  : 'N/A'}
+              </div>
+            </div>
+          </section>
         </article>
       </main>
     </div>
