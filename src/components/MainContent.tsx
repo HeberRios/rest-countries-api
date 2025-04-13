@@ -11,23 +11,26 @@ const formattedCountryData = formatCountryData(allCountriesData);
 
 export function MainContent() {
   return (
-    <main className='container home-page-content'>
+    <main className='home-page-content'>
       <SearchAndFilter />
-      <div className='countries-cards-container'>
-        {formattedCountryData.map((country) => {
-          return (
-            <CountryCard
-              key={country.cca3}
-              cca3={country.cca3}
-              name={country.name}
-              capital={country.capital}
-              region={country.region}
-              population={country.population}
-              flagImg={country.flagImg}
-              flagAlt={country.flagAlt}
-            />
-          );
-        })}
+
+      <div className='countries-cards-section'>
+        <div className='container countries-cards-container'>
+          {formattedCountryData.map((country) => {
+            return (
+              <CountryCard
+                key={country.cca3}
+                cca3={country.cca3}
+                name={country.name}
+                capital={country.capital}
+                region={country.region}
+                population={country.population}
+                flagImg={country.flagImg}
+                flagAlt={country.flagAlt}
+              />
+            );
+          })}
+        </div>
       </div>
     </main>
   );

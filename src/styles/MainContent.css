@@ -1,3 +1,8 @@
+.countries-cards-section {
+  padding-left: 2.75rem;
+  padding-right: 2.75rem;
+}
+
 .countries-cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(17.5rem, 20.3125rem));
@@ -5,6 +10,4 @@
   column-gap: 2.5rem;
   row-gap: 2.5rem;
   margin-top: 2.5rem;
-  padding-left: 2.75rem;
-  padding-right: 2.75rem;
 }
