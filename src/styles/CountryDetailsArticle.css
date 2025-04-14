@@ -1,24 +1,10 @@
-.details-page-content {
-  padding: 2rem 1.5rem;
-  font-size: var(--details-page-fs);
-}
-
-.country-details-home-page-link {
-  max-width: 7.1875rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 0.5rem;
-  background-color: var(--element-color);
-  padding: 0.375rem 1rem;
-  text-transform: capitalize;
-  border-radius: 0.25rem;
-  margin-bottom: 3.25rem;
-}
-
 .country-details-container {
   display: grid;
   row-gap: 2.5rem;
+}
+
+.country-flag-image-container {
+  max-width: 43.75rem;
 }
 
 .country-details-img {
@@ -26,15 +12,15 @@
   height: 100%;
 }
 
-.country-details-text-container {
-  display: grid;
-  row-gap: 2rem;
-}
-
-.main-country-details-wrapper > h2 {
+.country-details-text-container > :first-child {
   font-size: 1.25rem;
   font-weight: var(--fw-extra-bold);
   margin-bottom: 0.75rem;
+}
+
+.country-details-wrapper {
+  display: grid;
+  row-gap: 2rem;
 }
 
 .language-item:not(:last-child)::after {
@@ -51,6 +37,10 @@
 .main-country-details-wrapper > p > strong::after,
 .secondary-country-details-wrapper > p > strong::after {
   content: ' ';
+}
+
+.borders-wrapper {
+  margin-top: 2rem;
 }
 
 .borders-wrapper > strong:first-child {
@@ -70,4 +60,16 @@
   background-color: var(--element-color);
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
+}
+
+@media (min-width: 63.9688rem) {
+  .country-details-container {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    column-gap: 2rem;
+  }
+
+  .country-details-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
 }

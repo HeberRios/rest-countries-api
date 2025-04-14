@@ -17,51 +17,53 @@ export function CountryDetailsArticle({
       </header>
 
       <section className='country-details-text-container'>
-        <div className='main-country-details-wrapper'>
-          <h2>{countryData.name}</h2>
-          <p>
-            <strong>native name:</strong>
-            {countryData.nativeName}
-          </p>
-          <p>
-            <strong>population:</strong>
-            {countryData.population.toLocaleString()}
-          </p>
-          <p>
-            <strong>region:</strong>
-            {countryData.region}
-          </p>
-          <p>
-            <strong>sub region:</strong>
-            {countryData.subRegion !== '' ? countryData.subRegion : 'N/A'}
-          </p>
-          <p>
-            <strong>capital:</strong>
-            {countryData.capital.length > 0 ? countryData.capital[0] : 'N/A'}
-          </p>
-        </div>
+        <h2>{countryData.name}</h2>
+        <div className='country-details-wrapper'>
+          <div className='main-country-details-wrapper'>
+            <p>
+              <strong>native name:</strong>
+              {countryData.nativeName}
+            </p>
+            <p>
+              <strong>population:</strong>
+              {countryData.population.toLocaleString()}
+            </p>
+            <p>
+              <strong>region:</strong>
+              {countryData.region}
+            </p>
+            <p>
+              <strong>sub region:</strong>
+              {countryData.subRegion !== '' ? countryData.subRegion : 'N/A'}
+            </p>
+            <p>
+              <strong>capital:</strong>
+              {countryData.capital.length > 0 ? countryData.capital[0] : 'N/A'}
+            </p>
+          </div>
 
-        <div className='secondary-country-details-wrapper'>
-          <p>
-            <strong>top level domain:</strong>
-            {countryData.tld}
-          </p>
-          <p>
-            <strong>currencies:</strong>
-            {countryData.currencies}
-          </p>
-          <p>
-            <strong>languages:</strong>
-            {countryData.languages.length > 0
-              ? countryData.languages.map((lang) => {
-                  return (
-                    <span key={lang} className='language-item'>
-                      {lang}
-                    </span>
-                  );
-                })
-              : 'N/A'}
-          </p>
+          <div className='secondary-country-details-wrapper'>
+            <p>
+              <strong>top level domain:</strong>
+              {countryData.tld}
+            </p>
+            <p>
+              <strong>currencies:</strong>
+              {countryData.currencies}
+            </p>
+            <p>
+              <strong>languages:</strong>
+              {countryData.languages.length > 0
+                ? countryData.languages.map((lang) => {
+                    return (
+                      <span key={lang} className='language-item'>
+                        {lang}
+                      </span>
+                    );
+                  })
+                : 'N/A'}
+            </p>
+          </div>
         </div>
 
         <div className='borders-wrapper'>

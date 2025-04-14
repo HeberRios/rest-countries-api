@@ -4,6 +4,7 @@ import allCountriesData from '../data-mockups/data-v3_1.json';
 import { ArrowLeftIcon } from '../components/icons/ArrowLeftIcon';
 import { formatCountryDetailsData } from '../utils/utils';
 import { CountryDetailsArticle } from '../components/CountryDetailsArticle';
+import '../styles/CountryDetails.css';
 
 export default function CountryDetails() {
   const params = useParams();
@@ -18,13 +19,17 @@ export default function CountryDetails() {
   return (
     <div className='page-view'>
       <Header />
-      <main className='container details-page-content'>
-        <Link to='/' className='country-details-home-page-link'>
-          <ArrowLeftIcon />
-          <span>back</span>
-        </Link>
+      <main className='details-page-content'>
+        <div className='details-page-section'>
+          <div className='container'>
+            <Link to='/' className='country-details-home-page-link'>
+              <ArrowLeftIcon />
+              <span>back</span>
+            </Link>
 
-        <CountryDetailsArticle countryData={formattedCountryData} />
+            <CountryDetailsArticle countryData={formattedCountryData} />
+          </div>
+        </div>
       </main>
     </div>
   );

@@ -1,0 +1,17 @@
+.details-page-section {
+  padding: 2rem 1.5rem;
+  font-size: var(--details-page-fs);
+}
+
+.country-details-home-page-link {
+  max-width: 7.1875rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5rem;
+  background-color: var(--element-color);
+  padding: 0.375rem 1rem;
+  text-transform: capitalize;
+  border-radius: 0.25rem;
+  margin-bottom: 3.25rem;
+}
