@@ -7,6 +7,10 @@ export type RawCountryCardData = {
   flags: { png: string; alt?: string };
 };
 
+export type CountriesListProps = {
+  countriesData: CountryCardProps[];
+};
+
 export type CountryCardProps = {
   cca3: string;
   name: string;
