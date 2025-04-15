@@ -82,3 +82,18 @@ export type CountryDetailsArticle = {
   languages: string[];
   borders: string[];
 };
+
+// filter context types
+
+export type Filter = {
+  region: string;
+};
+
+export type FilterContextType = {
+  filter: Filter;
+  setFilter: React.Dispatch<React.SetStateAction<Filter>>;
+};
+
+export type FilterProviderProps = {
+  children: React.JSX.Element;
+};

@@ -5,6 +5,7 @@ import { formatCountryData } from '../utils/utils';
 import { CountriesList } from './CountriesList';
 import { useEffect, useState } from 'react';
 import { CountryCardProps } from '../types/types';
+import { useFilter } from '../useFilter';
 
 // endpoint for the countries data :
 // https://restcountries.com/v3.1/all?fields=,cca3,name,capital,region,subregion,population,flags,tld,currencies,languages,borders
@@ -12,10 +13,15 @@ import { CountryCardProps } from '../types/types';
 export function MainContent() {
   const [countries, setCountriesData] = useState<CountryCardProps[]>([]);
 
+  const { filter, filterCountries } = useFilter();
+
   useEffect(() => {
     const formattedCountryData = formatCountryData(allCountriesData);
-    setCountriesData(formattedCountryData);
-  }, []);
+
+    const filteredData = filterCountries(formattedCountryData);
+
+    setCountriesData(filteredData);
+  }, [filter]);
 
   return (
     <main className='home-page-content'>

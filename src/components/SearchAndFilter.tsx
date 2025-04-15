@@ -1,8 +1,20 @@
 import '../styles/SearchAndFilter.css';
+import { useFilter } from '../useFilter';
 import { ArrowDownIcon } from './icons/ArrowDownIcon';
 import { SearchIcon } from './icons/SearchIcon';
 
 export function SearchAndFilter() {
+  const { filter, setFilter } = useFilter();
+
+  function handleRegionChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    setFilter((prevState) => {
+      return {
+        ...prevState,
+        region: e.target.value,
+      };
+    });
+  }
+
   return (
     <div className='search-filter-section'>
       <div className='container search-filter-container'>
@@ -23,12 +35,22 @@ export function SearchAndFilter() {
         </div>
 
         <div className='filters-container'>
-          <select defaultValue='' name='region' className='filters-menu' id=''>
-            <option value='' style={{ display: 'none' }}>
-              Filter by Region
-            </option>
+          <select
+            value={filter.region}
+            onChange={handleRegionChange}
+            name='region'
+            className='filters-menu'
+            id=''
+          >
+            {filter.region === 'all' ? (
+              <option value='' selected style={{ display: 'none' }}>
+                Filter by Region
+              </option>
+            ) : (
+              <option value='all'>All</option>
+            )}
             <option value='africa'>Africa</option>
-            <option value='america'>America</option>
+            <option value='americas'>America</option>
             <option value='asia'>Asia</option>
             <option value='europe'>Europe</option>
             <option value='oceania'>Oceania</option>
