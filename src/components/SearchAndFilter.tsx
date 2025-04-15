@@ -1,5 +1,5 @@
 import '../styles/SearchAndFilter.css';
-import { useFilter } from '../useFilter';
+import { useFilter } from '../hooks/useFilter';
 import { ArrowDownIcon } from './icons/ArrowDownIcon';
 import { SearchIcon } from './icons/SearchIcon';
 

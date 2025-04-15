@@ -5,7 +5,7 @@ import { formatCountryData } from '../utils/utils';
 import { CountriesList } from './CountriesList';
 import { useEffect, useState } from 'react';
 import { CountryCardProps } from '../types/types';
-import { useFilter } from '../useFilter';
+import { useFilter } from '../hooks/useFilter';
 
 // endpoint for the countries data :
 // https://restcountries.com/v3.1/all?fields=,cca3,name,capital,region,subregion,population,flags,tld,currencies,languages,borders

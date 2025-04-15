@@ -1,6 +1,6 @@
 import { Header } from '../components/Header';
 import { MainContent } from '../components/MainContent';
-import { FilterProvider } from '../filterContext';
+import { FilterProvider } from '../context/filterContext';
 
 export default function HomePage() {
   return (

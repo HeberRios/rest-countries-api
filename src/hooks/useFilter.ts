@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { FilterContext } from './filterContext';
-import { CountryCardProps } from './types/types';
+import { FilterContext } from '../context/filterContext';
+import { CountryCardProps } from '../types/types';
 
 export function useFilter() {
   const context = useContext(FilterContext);
