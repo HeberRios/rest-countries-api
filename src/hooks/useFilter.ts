@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useCallback, useContext } from 'react';
 import { FilterContext } from '../context/filterContext';
 import { CountryCardProps } from '../types/types';
 
@@ -11,16 +11,18 @@ export function useFilter() {
 
   const { filter, setFilter } = context;
 
-  function filterCountries(countries: CountryCardProps[]) {
-    const filteredCountries = countries.filter((country) => {
-      return (
-        filter.region === 'all' ||
-        country.region.toLowerCase() === filter.region
-      );
-    });
-
-    return filteredCountries;
-  }
+  // using useCallback to stabilize the filterCountries
+  const filterCountries = useCallback(
+    (countries: CountryCardProps[]) => {
+      return countries.filter((country) => {
+        return (
+          filter.region === 'all' ||
+          country.region.toLowerCase() === filter.region
+        );
+      });
+    },
+    [filter]
+  );
 
   return {
     filter,

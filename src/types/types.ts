@@ -1,5 +1,3 @@
-import { CountriesContext } from '../context/countries';
-
 export type RawCountryCardData = {
   cca3: string;
   name: { official: string };
