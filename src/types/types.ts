@@ -1,3 +1,5 @@
+import { CountriesContext } from '../context/countries';
+
 export type RawCountryCardData = {
   cca3: string;
   name: { official: string };
@@ -95,5 +97,16 @@ export type FilterContextType = {
 };
 
 export type FilterProviderProps = {
+  children: React.JSX.Element;
+};
+
+// countries context types
+
+export type CountriesContextType = {
+  countries: CountryCardProps[];
+  setCountries: React.Dispatch<React.SetStateAction<CountryCardProps[]>>;
+};
+
+export type CountriesProviderProps = {
   children: React.JSX.Element;
 };

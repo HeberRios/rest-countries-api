@@ -43,7 +43,7 @@ export function SearchAndFilter() {
             id=''
           >
             {filter.region === 'all' ? (
-              <option value='' selected style={{ display: 'none' }}>
+              <option value='' style={{ display: 'none' }}>
                 Filter by Region
               </option>
             ) : (

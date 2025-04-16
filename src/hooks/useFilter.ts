@@ -19,8 +19,6 @@ export function useFilter() {
       );
     });
 
-    console.log(filteredCountries);
-
     return filteredCountries;
   }
 
