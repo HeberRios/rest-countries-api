@@ -11,14 +11,21 @@ export function useFilter() {
 
   const { filter, setFilter } = context;
 
-  // using useCallback to stabilize the filterCountries
   const filterCountries = useCallback(
     (countries: CountryCardProps[]) => {
       return countries.filter((country) => {
-        return (
-          filter.region === 'all' ||
-          country.region.toLowerCase() === filter.region
-        );
+        if (filter.query === '') {
+          return (
+            filter.region === 'all' ||
+            country.region.toLowerCase() === filter.region
+          );
+        } else {
+          return (
+            country.name.toLowerCase().includes(filter.query.toLowerCase()) &&
+            (filter.region === 'all' ||
+              country.region.toLowerCase() === filter.region)
+          );
+        }
       });
     },
     [filter]

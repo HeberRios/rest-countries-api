@@ -6,6 +6,19 @@ import { SearchIcon } from './icons/SearchIcon';
 export function SearchAndFilter() {
   const { filter, setFilter } = useFilter();
 
+  function handleSearchBarSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+  }
+
+  function handleSearchBarChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setFilter((prevState) => {
+      return {
+        ...prevState,
+        query: e.target.value,
+      };
+    });
+  }
+
   function handleRegionChange(e: React.ChangeEvent<HTMLSelectElement>) {
     setFilter((prevState) => {
       return {
@@ -19,13 +32,19 @@ export function SearchAndFilter() {
     <div className='search-filter-section'>
       <div className='container search-filter-container'>
         <div className='search-bar-container'>
-          <form action='' className='country-search-form'>
+          <form
+            onSubmit={handleSearchBarSubmit}
+            action=''
+            className='country-search-form'
+          >
             <input
               type='text'
               name=''
               id=''
               className='search-bar'
               placeholder='Search for a country...'
+              onChange={handleSearchBarChange}
+              value={filter.query}
             />
 
             <button type='submit' className='btn search-bar-btn'>
@@ -42,13 +61,7 @@ export function SearchAndFilter() {
             className='filters-menu'
             id=''
           >
-            {filter.region === 'all' ? (
-              <option value='' style={{ display: 'none' }}>
-                Filter by Region
-              </option>
-            ) : (
-              <option value='all'>All</option>
-            )}
+            <option value='all'>Filter by region</option>
             <option value='africa'>Africa</option>
             <option value='americas'>America</option>
             <option value='asia'>Asia</option>

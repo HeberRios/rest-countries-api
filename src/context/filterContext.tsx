@@ -6,7 +6,7 @@ export const FilterContext = createContext<FilterContextType | undefined>(
 );
 
 export function FilterProvider({ children }: FilterProviderProps) {
-  const [filter, setFilter] = useState<Filter>({ region: 'all' });
+  const [filter, setFilter] = useState<Filter>({query: '', region: 'all' });
 
   return (
     <FilterContext.Provider value={{ filter, setFilter }}>

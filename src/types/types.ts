@@ -86,6 +86,7 @@ export type CountryDetailsArticle = {
 // filter context types
 
 export type Filter = {
+  query: string;
   region: string;
 };
 
