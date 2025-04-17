@@ -2,21 +2,34 @@ import '../styles/SearchAndFilter.css';
 import { useFilter } from '../hooks/useFilter';
 import { ArrowDownIcon } from './icons/ArrowDownIcon';
 import { SearchIcon } from './icons/SearchIcon';
+import { debounce } from '../utils/utils';
+import React, { useMemo, useState } from 'react';
 
 export function SearchAndFilter() {
   const { filter, setFilter } = useFilter();
+
+  const [searchInputValue, setSearchInputValue] = useState(filter.query);
+
+  const debounceSearchInput = useMemo(() => {
+    return debounce((queryValue: string) => {
+      setFilter((prevState) => {
+        return {
+          ...prevState,
+          query: queryValue,
+        };
+      });
+    }, 500);
+  }, [setFilter]);
 
   function handleSearchBarSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
   }
 
   function handleSearchBarChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setFilter((prevState) => {
-      return {
-        ...prevState,
-        query: e.target.value,
-      };
-    });
+    const queryValue = e.target.value;
+
+    setSearchInputValue(queryValue);
+    debounceSearchInput(queryValue);
   }
 
   function handleRegionChange(e: React.ChangeEvent<HTMLSelectElement>) {
@@ -44,7 +57,7 @@ export function SearchAndFilter() {
               className='search-bar'
               placeholder='Search for a country...'
               onChange={handleSearchBarChange}
-              value={filter.query}
+              value={searchInputValue}
             />
 
             <button type='submit' className='btn search-bar-btn'>
