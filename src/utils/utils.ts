@@ -4,12 +4,12 @@ export function formatCountryData(countriesData: RawCountryCardData[]) {
   return countriesData.map((country) => {
     return {
       cca3: country.cca3,
-      name: country.name.official,
+      name: country.name.common,
       capital: country.capital?.[0] || 'N/A',
       region: country.region,
       population: country.population,
       flagImg: country.flags.png,
-      flagAlt: country.flags.alt || `${country.name.official} flag`,
+      flagAlt: country.flags.alt || `${country.name.common} flag`,
     };
   });
 }

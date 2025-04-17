@@ -1,6 +1,6 @@
 export type RawCountryCardData = {
   cca3: string;
-  name: { official: string };
+  name: { common: string };
   capital?: string[];
   region: string;
   population: number;
