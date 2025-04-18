@@ -7,8 +7,9 @@ import {
   CountryCardProps,
 } from '../types/types';
 
-import allCountriesData from '../data-mockups/data-v3_1.json';
 import { formatCountryData } from '../utils/utils';
+import { getAllCountriesData } from '../services/countriesData';
+import { allCountriesDataEndpoint } from '../utils/consts';
 
 export const CountriesContext = createContext<CountriesContextType | undefined>(
   undefined
@@ -19,8 +20,17 @@ export function CountriesProvider({ children }: CountriesProviderProps) {
   const [countries, setCountries] = useState<CountryCardProps[]>([]);
 
   useEffect(() => {
-    const formattedCountryData = formatCountryData(allCountriesData);
-    setCountries(formattedCountryData);
+    async function fetchCountriesData() {
+      try {
+        const rawData = await getAllCountriesData(allCountriesDataEndpoint);
+        const formattedCountryData = formatCountryData(rawData);
+        setCountries(formattedCountryData);
+      } catch (error) {
+        throw new Error(`Error fetching the countries:  ${error}`);
+      }
+    }
+
+    fetchCountriesData();
   }, []);
 
   return (
