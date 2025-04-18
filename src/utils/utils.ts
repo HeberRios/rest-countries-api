@@ -1,4 +1,8 @@
-import { Country, RawCountryCardData } from '../types/types';
+import {
+  Country,
+  CountryDetailsArticleType,
+  RawCountryCardData,
+} from '../types/types';
 
 export function formatCountryData(countriesData: RawCountryCardData[]) {
   return countriesData.map((country) => {
@@ -14,26 +18,38 @@ export function formatCountryData(countriesData: RawCountryCardData[]) {
   });
 }
 
-export function formatCountryDetailsData(country: Country) {
-  const nativeNameLanguage = Object.keys(country.name.nativeName).slice(
-    0,
-    1
-  )[0];
+export function formatCountryDetailsData(
+  country: Country
+): CountryDetailsArticleType {
+  const nativeNameLanguage = () => {
+    if (country.name.nativeName) {
+      return Object.keys(country.name.nativeName).slice(0, 1)[0];
+    } else {
+      return '';
+    }
+  };
 
-  const countryCurrency = Object.keys(country.currencies)[0];
+  const countryCurrency = () => {
+    if (country.currencies) {
+      return Object.keys(country.currencies)[0];
+    } else {
+      return '';
+    }
+  };
 
   return {
-    flags: country.flags,
-    name: country.name?.official,
-    nativeName: country.name.nativeName?.[nativeNameLanguage]?.common ?? 'N/A',
-    population: country.population,
-    region: country.region,
-    subRegion: country.subregion,
-    capital: country.capital,
-    tld: country.tld[0],
-    currencies: country.currencies?.[countryCurrency]?.name ?? 'N/A',
-    languages: Object.values(country.languages),
-    borders: country.borders,
+    flags: country.flags ?? 'N/A',
+    name: country.name?.official ?? 'N/A',
+    nativeName:
+      country.name.nativeName?.[nativeNameLanguage()]?.common ?? 'N/A',
+    population: country.population ?? 'N/A',
+    region: country.region ?? 'N/A',
+    subRegion: country.subregion ?? 'N/A',
+    capital: country.capital ?? [],
+    tld: country.tld[0] ?? 'N/A',
+    currencies: country.currencies?.[countryCurrency()]?.name ?? 'N/A',
+    languages: Object.values(country.languages ?? {}),
+    borders: country.borders ?? [],
   };
 }
 

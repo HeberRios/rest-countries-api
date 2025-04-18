@@ -66,10 +66,10 @@ export type Region =
   | 'Oceania';
 
 export type CountryDetailsArticleProps = {
-  countryData: CountryDetailsArticle;
+  countryData: CountryDetailsArticleType;
 };
 
-export type CountryDetailsArticle = {
+export type CountryDetailsArticleType = {
   flags: Flags;
   name: string;
   nativeName: string;
