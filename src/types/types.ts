@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type RawCountryCardData = {
   cca3: string;
   name: { common: string };
@@ -96,7 +98,7 @@ export type FilterContextType = {
 };
 
 export type FilterProviderProps = {
-  children: React.JSX.Element;
+  children: ReactNode;
 };
 
 // countries context types
@@ -107,5 +109,16 @@ export type CountriesContextType = {
 };
 
 export type CountriesProviderProps = {
-  children: React.JSX.Element;
+  children: ReactNode;
+};
+
+// theme context types
+
+export type ThemeContextType = {
+  lightMode: string | undefined;
+  setLightMode: React.Dispatch<React.SetStateAction<string | undefined>>;
+};
+
+export type ThemeProviderProps = {
+  children: ReactNode;
 };

@@ -34,11 +34,13 @@
   --background-light: hsl(0, 0%, 95%);
   --element-light: hsl(0, 0%, 100%);
   --text-light: hsl(200, 15%, 8%);
+  --box-shadow-light: hsla(206, 24%, 13%, 0.146);
 
   /* default theme colors */
   --background-color: var(--background-dark);
   --element-color: var(--element-dark);
   --text-color: var(--text-dark);
+  --shadow-color: var(--box-shadow-dark);
 
   /* # Typography */
 
@@ -54,6 +56,24 @@
   --fw-semibold: 600;
   --fw-extra-bold: 800;
 }
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--background-dark);
+    --element-color: var(--element-dark);
+    --text-color: var(--text-dark);
+    --shadow-color: var(--box-shadow-dark);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: var(--background-light);
+    --element-color: var(--element-light);
+    --text-color: var(--text-light);
+    --shadow-color: var(--box-shadow-light);
+  }
+} */
 
 /* CSS RESET */
 /*
@@ -123,8 +143,19 @@ h6 {
 body {
   min-height: 100dvh;
   font-family: var(--main-font);
+}
+
+.page-view {
+  min-height: 100dvh;
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+.light-mode {
+  --background-color: var(--background-light);
+  --element-color: var(--element-light);
+  --text-color: var(--text-light);
+  --shadow-color: var(--box-shadow-light);
 }
 
 a {

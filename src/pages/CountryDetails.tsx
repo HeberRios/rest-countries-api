@@ -8,8 +8,10 @@ import { getCountryDetails } from '../services/countriesData';
 import { useEffect, useState } from 'react';
 import { CountryDetailsArticleType } from '../types/types';
 import { LoadingStateIcon } from '../components/icons/LoadingStateIcon';
+import { useTheme } from '../hooks/useTheme';
 
 export default function CountryDetails() {
+  const { lightMode } = useTheme();
   const { countryCode } = useParams();
   const [countryData, setCountryData] = useState<
     CountryDetailsArticleType | undefined
@@ -38,7 +40,9 @@ export default function CountryDetails() {
   }, [countryCode]);
 
   return (
-    <div className='page-view'>
+    <div
+      className={lightMode === 'enabled' ? 'page-view light-mode' : 'page-view'}
+    >
       <Header />
       <main className='details-page-content'>
         <div className='details-page-section'>

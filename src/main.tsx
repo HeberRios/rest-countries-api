@@ -4,6 +4,7 @@ import './styles/main.css';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import HomePage from './pages/HomePage.tsx';
 import CountryDetails from './pages/CountryDetails.tsx';
+import { ThemeProvider } from './context/themeChange.tsx';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </StrictMode>
 );
