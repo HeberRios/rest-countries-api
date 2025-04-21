@@ -9,8 +9,10 @@ export function Header() {
   function toggleLightMode() {
     if (lightMode === 'disabled') {
       setLightMode('enabled');
+      window.localStorage.setItem('lightMode', 'enabled');
     } else {
       setLightMode('disabled');
+      window.localStorage.setItem('lightMode', 'disabled');
     }
   }
 

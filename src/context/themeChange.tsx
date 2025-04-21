@@ -9,6 +9,12 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   const [lightMode, setLightMode] = useState<string | undefined>(undefined);
 
   function checkPreferredColorScheme() {
+    const savedTheme = window.localStorage.getItem('lightMode');
+
+    if (savedTheme) {
+      return savedTheme;
+    }
+
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return 'disabled';
     } else {
