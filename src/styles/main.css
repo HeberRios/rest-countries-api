@@ -149,6 +149,7 @@ body {
   min-height: 100dvh;
   background-color: var(--background-color);
   color: var(--text-color);
+  transition: all 0.4s;
 }
 
 .light-mode {

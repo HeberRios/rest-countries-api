@@ -4,12 +4,16 @@
 }
 
 .country-flag-image-container {
-  max-width: 43.75rem;
+  max-width: 35.9375rem;
 }
 
 .country-details-img {
   width: 100%;
   height: 100%;
+}
+
+.country-details-text-container {
+  transition: all 0.4s;
 }
 
 .country-details-text-container > :first-child {
@@ -60,6 +64,12 @@
   background-color: var(--element-color);
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
+  transition: all 0.4s;
+}
+
+.border-country-link:focus,
+.border-country-link:hover {
+  scale: 1.1;
 }
 
 @media (min-width: 63.9688rem) {

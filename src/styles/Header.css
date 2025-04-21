@@ -1,6 +1,7 @@
 .page-header {
   padding: 2.25rem 1rem;
   background-color: var(--element-color);
+  transition: all 0.4s;
 }
 
 .header-content {
@@ -17,8 +18,11 @@
   color: inherit;
   border: none;
   background-color: unset;
+  transition: all 0.4s;
 }
 
-.theme-switch-btn:hover {
+.theme-switch-btn:hover,
+.theme-switch-btn:focus {
   cursor: pointer;
+  scale: 1.25;
 }
