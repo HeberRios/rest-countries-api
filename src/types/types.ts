@@ -115,8 +115,8 @@ export type CountriesProviderProps = {
 // theme context types
 
 export type ThemeContextType = {
-  lightMode: string | undefined;
-  setLightMode: React.Dispatch<React.SetStateAction<string | undefined>>;
+  lightMode: boolean | undefined;
+  setLightMode: React.Dispatch<React.SetStateAction<boolean | undefined>>;
 };
 
 export type ThemeProviderProps = {

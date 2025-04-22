@@ -6,24 +6,28 @@ export const ThemeContext = createContext<ThemeContextType | undefined>(
 );
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [lightMode, setLightMode] = useState<string | undefined>(undefined);
-
-  function checkPreferredColorScheme() {
-    const savedTheme = window.localStorage.getItem('lightMode');
-
-    if (savedTheme) {
-      return savedTheme;
-    }
-
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'disabled';
-    } else {
-      return 'enabled';
-    }
-  }
+  const [lightMode, setLightMode] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
-    setLightMode(checkPreferredColorScheme());
+    function prefersLightMode() {
+      const savedTheme = window.localStorage.getItem('lightMode');
+
+      if (savedTheme) {
+        return savedTheme === 'true';
+      }
+
+      return window.matchMedia('(prefers-color-scheme: light)').matches;
+    }
+
+    function setPreferredColorScheme() {
+      if (prefersLightMode()) {
+        document.body.classList.add('light-mode');
+      } else {
+        document.body.classList.remove('light-mode');
+      }
+    }
+    setPreferredColorScheme();
+    setLightMode(prefersLightMode());
   }, []);
 
   return (

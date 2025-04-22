@@ -7,13 +7,9 @@ export function Header() {
   const { lightMode, setLightMode } = useTheme();
 
   function toggleLightMode() {
-    if (lightMode === 'disabled') {
-      setLightMode('enabled');
-      window.localStorage.setItem('lightMode', 'enabled');
-    } else {
-      setLightMode('disabled');
-      window.localStorage.setItem('lightMode', 'disabled');
-    }
+    setLightMode(!lightMode);
+    document.body.classList.toggle('light-mode', !lightMode);
+    window.localStorage.setItem('lightMode', String(!lightMode));
   }
 
   return (
@@ -25,7 +21,7 @@ export function Header() {
           id='theme-switch'
           className='theme-switch-btn'
         >
-          {lightMode === 'disabled' ? <SunIcon /> : <MoonIcon />}
+          {lightMode ? <MoonIcon /> : <SunIcon />}
         </button>
       </section>
     </header>
