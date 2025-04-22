@@ -53,7 +53,7 @@ export function formatCountryDetailsData(
   };
 }
 
-export function debounce<T extends (...args: unknown[]) => void>(
+export function debounce<T extends (...args: any[]) => void>(
   func: T,
   delay = 300
 ) {
